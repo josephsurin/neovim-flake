@@ -101,6 +101,14 @@ in {
         map("n", "<C-h>", "<C-w>h", { desc = "Go to the left window" })
         map("n", "<C-l>", "<C-w>l", { desc = "Go to the right window" })
 
+        -- traverse the jump list
+        map("n", "<M-h>", "<C-o>", { desc = "Go to previous location" })
+        map("n", "<M-l>", "<C-i>", { desc = "Go to next location" })
+
+        -- left hand only keys
+        map("n", "<M-S-a>", "<C-o>", { desc = "Go to previous location" })
+        map("n", "<M-S-s>", "<C-i>", { desc = "Go to next location" })
+
         -- Resize window using <ctrl> arrow keys
         map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
         map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
