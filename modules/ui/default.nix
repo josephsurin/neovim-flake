@@ -129,6 +129,38 @@ with lib; {
       map("n","<leader>bp","<cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
       map("n","<leader>bP","<cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
 
+      local function show_macro_recording()
+        local recording_register = vim.fn.reg_recording()
+        if recording_register == "" then
+          return ""
+        else
+          return "Recording @" .. recording_register
+        end
+      end
+
+      vim.api.nvim_create_autocmd("RecordingEnter", {
+        callback = function()
+          require('lualine').refresh({
+            place = { "statusline" },
+          })
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("RecordingLeave", {
+        callback = function()
+          local timer = vim.loop.new_timer()
+          timer:start(
+            50,
+            0,
+            vim.schedule_wrap(function()
+              require('lualine').refresh({
+                place = { "statusline" },
+              })
+            end)
+          )
+        end,
+      })
+
       require('lualine').setup({
         options = {
           theme = "auto",
@@ -138,8 +170,9 @@ with lib; {
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { "branch" },
-          lualine_c = {
+          lualine_b = { { "macro-recording", fmt = show_macro_recording } },
+          lualine_c = { "branch" },
+          lualine_d = {
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 1 } },
             { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             {
