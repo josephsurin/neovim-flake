@@ -22,6 +22,7 @@ in {
       mini-comment
       nvim-ts-commentstring
       mini-ai
+      prettier
     ];
 
     vim.luaConfigRC = /* lua */ ''

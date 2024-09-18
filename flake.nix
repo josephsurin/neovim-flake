@@ -62,6 +62,10 @@
       url = "github:echasnovski/mini.ai";
       flake = false;
     };
+    prettier = {
+      url = "github:prettier/vim-prettier";
+      flake = false;
+    };
 
     #-------------------------------------
     # Colorscheme Plugins

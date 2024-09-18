@@ -890,6 +890,22 @@
         "type": "github"
       }
     },
+    "prettier": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696902924,
+        "narHash": "sha256-5fQIXYOCdQ4KltY23PFa49H0SwJmMCvE+RxPffAFq8I=",
+        "owner": "prettier",
+        "repo": "vim-prettier",
+        "rev": "7dbdbb12c50a9f4ba72390cce2846248e4368fd0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "prettier",
+        "repo": "vim-prettier",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "bufferline": "bufferline",
@@ -936,6 +952,7 @@
         "nvim-web-devicons": "nvim-web-devicons",
         "persistence": "persistence",
         "plenary": "plenary",
+        "prettier": "prettier",
         "rust-tools": "rust-tools",
         "telescope": "telescope",
         "todo-comments": "todo-comments",
