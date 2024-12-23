@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./basic
+    ./ui
     ./coding
     ./colorscheme
     ./core
@@ -14,7 +15,7 @@
     ./lsp
     ./neovim
     ./treesitter
-    ./ui
     ./util
+    ./xcodebuild
   ];
 }

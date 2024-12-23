@@ -15,6 +15,7 @@ with lib; {
         lsp-status
         nvim-navic
         mini-indentscope
+        zen-mode
     ];
 
     vim.configRC = /* vim */ ''
@@ -228,6 +229,21 @@ with lib; {
           vim.b.miniindentscope_disable = true
         end,
       })
+
+      -- Zen Mode
+      require("zen-mode").setup({
+        window = {
+          width = 1,
+        },
+        plugins = {
+          options = {
+            laststatus = 1,
+            ruler = false,
+            showcmd = false,
+          },
+        },
+      })
+      map("n","<leader>z", "<cmd>ZenMode<cr>", {desc="Toggle Zen Mode"})
     '';
   };
 }

@@ -8,7 +8,7 @@ lspconfig.html.setup{
   on_attach = function(client, bufnr)
     attach_keymaps(client, bufnr)
   end,
-  cmd = { "${pkgs.vscode-langservers-extracted}/bin/html-languageserver", "--stdio" },
+  cmd = { "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server", "--stdio" },
   handlers = handlers,
 }
 ''

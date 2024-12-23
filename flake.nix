@@ -66,6 +66,10 @@
       url = "github:prettier/vim-prettier";
       flake = false;
     };
+    dropbar = {
+      url = "github:Bekaboo/dropbar.nvim";
+      flake = false;
+    };
 
     #-------------------------------------
     # Colorscheme Plugins
@@ -76,6 +80,10 @@
     };
     gruvbox-material = {
       url = "github:sainnhe/gruvbox-material";
+      flake = false;
+    };
+    tokyonight = {
+      url = "github:folke/tokyonight.nvim";
       flake = false;
     };
     nvim-transparent = {
@@ -170,6 +178,10 @@
       url = "github:smjonas/inc-rename.nvim";
       flake = false;
     };
+    xcodebuild = {
+      url = "github:wojciech-kulik/xcodebuild.nvim";
+      flake = false;
+    };
 
     #-------------------------------------
     # Treesitter Plugins
@@ -226,6 +238,14 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
+    hex-nvim = {
+      url = "github:RaafatTurki/hex.nvim";
+      flake = false;
+    };
+    zen-mode = {
+      url = "github:folke/zen-mode.nvim";
+      flake = false;
+    };
 
     #-------------------------------------
     # Utility Plugins
@@ -275,6 +295,7 @@
 
         defaults = {
           vim = {
+            colorscheme = "gruvbox-material";
             lsp = {
               enable = true;
               languages = {
@@ -285,6 +306,8 @@
                 go = true;
                 python = true;
                 typescript = true;
+                eslint = true;
+                sourcekit = true;
                 html = true;
                 tailwindcss = true;
               };

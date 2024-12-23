@@ -1,11 +1,24 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }:
 with lib; {
+  options.vim = {
+    colorscheme = mkOption {
+      type = types.str;
+      default = "gruvbox-material";
+      description = "Choice of colour scheme";
+    };
+  };
+
   config = {
-    vim.startPlugins = with pkgs.neovimPlugins; [gruvbox-material nvim-transparent];
+    vim.startPlugins = with pkgs.neovimPlugins; [
+      gruvbox-material
+      tokyonight
+      nvim-transparent
+    ];
 
     vim.configRC = /* vim */ ''
       if has('termguicolors')
@@ -38,14 +51,31 @@ with lib; {
         autocmd!
         autocmd ColorScheme gruvbox-material call s:gruvbox_material_custom()
       augroup END
-
-      colorscheme gruvbox-material
     '';
 
     vim.luaConfigRC = /* lua */ ''
       -- Enable transparency plugin
       require('transparent').setup()
       map("n", "<leader>ut", "<cmd>TransparentToggle<cr>", { desc = "Toggle Transparency" })
+
+      require("tokyonight").setup({
+        style = "night",
+        styles = {
+          functions = {}
+        },
+        on_colors = function(colors)
+          colors.bg = "#15151a"
+          colors.bg_dark = "#15151a"
+          colors.bg_dark1 = "#15151a"
+          colors.bg_float = "#15151a"
+          colors.bg_popup = "#15151a"
+          colors.bg_sidebar = "#15151a"
+          colors.bg_statusline = "#15151a"
+          colors.bg_highlight = "#171a25"
+        end
+      })
+
+      vim.cmd('colorscheme ${config.vim.colorscheme}')
     '';
   };
 }

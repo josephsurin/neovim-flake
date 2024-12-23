@@ -7,6 +7,7 @@ with lib; {
   config = {
     vim.startPlugins = with pkgs.neovimPlugins; [
       persistence
+      hex-nvim
     ];
 
     vim.luaConfigRC = /* lua */ ''

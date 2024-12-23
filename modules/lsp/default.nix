@@ -9,7 +9,7 @@ with builtins; let
   cfg = config.vim.lsp;
   lspConfigs = concatStringsSep "\n\n" (attrValues
     (attrsets.mapAttrs
-      (n: v: import ./${n}.nix { pkgs = pkgs; })
+      (n: v: import ./${n}.nix { inherit config pkgs; })
       (attrsets.filterAttrs (n: v: v == true) cfg.languages))
   );
 in {
@@ -75,6 +75,21 @@ in {
         type = types.bool;
         default = false;
         description = "Enable Tailwind CSS LSP Server";
+      };
+      eslint = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable eslint LSP Server";
+      };
+      sourcekit = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable Sourcekit LSP Server";
+      };
+      sourcekit-cmd = mkOption {
+        type = types.path;
+        default = "/usr/bin/sourcekit-lsp";
+        description = "Path to sourcekit-lsp binary";
       };
       ruby = mkOption { # TODO: implement this
         type = types.bool;
