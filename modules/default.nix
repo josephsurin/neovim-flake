@@ -11,7 +11,6 @@
     ./colorscheme
     ./core
     ./editor
-    ./keys
     ./lsp
     ./neovim
     ./treesitter

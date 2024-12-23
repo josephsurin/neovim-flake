@@ -515,6 +515,22 @@
         "type": "github"
       }
     },
+    "mini-icons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734008284,
+        "narHash": "sha256-RxaOntmnL/xy8lYu3fTBve3MV7ZTRc/xSrp5psU/YW0=",
+        "owner": "echasnovski",
+        "repo": "mini.icons",
+        "rev": "44c0160526f7ae17ca8e8eab9ab235d047fcf7a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "echasnovski",
+        "repo": "mini.icons",
+        "type": "github"
+      }
+    },
     "mini-indentscope": {
       "flake": false,
       "locked": {
@@ -964,6 +980,7 @@
         "mini-ai": "mini-ai",
         "mini-bufremove": "mini-bufremove",
         "mini-comment": "mini-comment",
+        "mini-icons": "mini-icons",
         "mini-indentscope": "mini-indentscope",
         "mini-pairs": "mini-pairs",
         "neo-tree": "neo-tree",

@@ -10,11 +10,13 @@ with lib; {
         noice nvim-notify nui
         dressing
         nvim-web-devicons
+        mini-icons
         bufferline
         lualine
         lsp-status
         nvim-navic
         mini-indentscope
+        which-key
         zen-mode
     ];
 
@@ -90,6 +92,7 @@ with lib; {
 
       require('dressing').setup()
       require('nvim-web-devicons').setup()
+      require('mini.icons').setup()
 
       vim.opt.termguicolors = true
       require("bufferline").setup({
@@ -244,6 +247,9 @@ with lib; {
         },
       })
       map("n","<leader>z", "<cmd>ZenMode<cr>", {desc="Toggle Zen Mode"})
+
+      local wk = require("which-key")
+      wk.setup()
     '';
   };
 }

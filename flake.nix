@@ -238,6 +238,10 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
+    mini-icons = {
+      url = "github:echasnovski/mini.icons";
+      flake = false;
+    };
     hex-nvim = {
       url = "github:RaafatTurki/hex.nvim";
       flake = false;
