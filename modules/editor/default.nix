@@ -10,6 +10,7 @@ with lib; {
       neo-tree
       nvim-spectre
       telescope
+      telescope-fzf-native
       leap
       gitsigns
       vim-illuminate

@@ -9,8 +9,6 @@ with lib;
 with builtins; let
   inherit (prev.vimUtils) buildVimPlugin;
 
-  treeSitterPlug = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
-
   buildPlug = name:
     buildVimPlugin {
       pname = name;
@@ -19,7 +17,8 @@ with builtins; let
     };
 
   vimPlugins = {
-    inherit treeSitterPlug;
+    treeSitterPlug = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+    telescope-fzf-native = pkgs.vimPlugins.telescope-fzf-native-nvim;
   };
 in {
   neovimPlugins = let
