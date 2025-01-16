@@ -51,6 +51,11 @@ in {
         default = false;
         description = "Enable C/C++ LSP Server";
       };
+      c-cmd = mkOption {
+        type = types.path;
+        default = "${pkgs.clang-tools}/bin/clangd";
+        description = "Path to clangd binary";
+      };
       python = mkOption {
         type = types.bool;
         default = false;

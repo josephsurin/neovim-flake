@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 /* lua */ ''
 lspconfig.clangd.setup {
   capabilities = capabilities;
   on_attach = default_on_attach;
-  cmd = {"${pkgs.clang-tools}/bin/clangd"},
+  cmd = {"${config.vim.lsp.languages.c-cmd}"},
   handlers = handlers,
 }
 ''
