@@ -2,8 +2,8 @@
   description = "Neovim flake, modified from github:cwfryer/neovim-flake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs?rev=d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
     flake-utils.url = "github:numtide/flake-utils";
 
     neovim-nightly-overlay = {
@@ -73,6 +73,10 @@
     dropbar = {
       url = "github:Bekaboo/dropbar.nvim";
       flake = false;
+    };
+    conform = {
+        url = "github:stevearc/conform.nvim";
+        flake = false;
     };
 
     #-------------------------------------

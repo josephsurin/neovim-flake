@@ -14,6 +14,7 @@ with builtins; let
       pname = name;
       version = "master";
       src = builtins.getAttr name inputs;
+      doCheck = false;
     };
 
   vimPlugins = {
