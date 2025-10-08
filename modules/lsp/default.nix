@@ -101,13 +101,18 @@ in {
         default = false;
         description = "Enable Ruby LSP Server";
       };
+      yaml = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable YAML LSP Server";
+      };
     };
   };
   config = mkIf cfg.enable {
     vim.startPlugins = with pkgs.neovimPlugins; [
       nvim-lspconfig null-ls inc-rename
       neoconf
-      crates-nvim rust-tools
+      crates-nvim rustaceanvim
     ];
 
     vim.luaConfigRC = /* lua */ ''
@@ -220,7 +225,7 @@ in {
       -- Auto format autocommand to be used by null-ls
       local nls_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       format_callback = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
           vim.api.nvim_clear_autocmds({ group = nls_augroup, buffer = bufnr })
           vim.api.nvim_create_autocmd("BufWritePre", {
             group = nls_augroup,
@@ -245,7 +250,6 @@ in {
       require("neoconf").setup()
 
       -- Enable lspconfig
-      local lspconfig = require('lspconfig')
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       ${lspConfigs}
     '';

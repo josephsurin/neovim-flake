@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 /* lua */ ''
-lspconfig.lua_ls.setup{
+vim.lsp.config('lua_ls', {
   settings = {
     runtime = {
       version = "LuaJIT"
@@ -20,5 +20,6 @@ lspconfig.lua_ls.setup{
   on_attach = default_on_attach;
   cmd = {"${pkgs.sumneko-lua-language-server}/bin/lua-language-server"},
   handlers = handlers,
-}
+})
+vim.lsp.enable('lua_ls')
 ''

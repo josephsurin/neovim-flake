@@ -171,15 +171,15 @@
       flake = false;
     };
     null-ls = {
-      url = "github:jose-elias-alvarez/null-ls.nvim";
+      url = "github:nvimtools/none-ls.nvim";
       flake = false;
     };
     crates-nvim = {
       url = "github:Saecki/crates.nvim";
       flake = false;
     };
-    rust-tools = {
-      url = "github:simrat39/rust-tools.nvim";
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
       flake = false;
     };
     inc-rename = {
@@ -322,6 +322,7 @@
                 sourcekit = true;
                 html = true;
                 tailwindcss = true;
+                yaml = true;
               };
             };
           };

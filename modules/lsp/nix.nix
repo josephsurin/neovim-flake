@@ -1,12 +1,13 @@
 { pkgs, ... }:
 
 /* lua */ ''
-lspconfig.nil_ls.setup{
+vim.lsp.config('nil_ls', {
   capabilities = capabilities;
   on_attach = function(client, bufnr)
     attach_keymaps(client, bufnr)
   end,
   cmd = {"${pkgs.nil}/bin/nil"},
   handlers = handlers,
-}
+})
+vim.lsp.enable('nil_ls')
 ''
